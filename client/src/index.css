@@ -1,0 +1,323 @@
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --radius: 0.25rem;
+  
+  /* Retro-futuristic "system failure" palette */
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.10 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(0.85 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(1 0.3 200);
+  --accent-foreground: oklch(0.08 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.20 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(1 0.3 200);
+  --sidebar: oklch(0.10 0 0);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(1 0.3 200);
+  --sidebar-accent-foreground: oklch(0.08 0 0);
+  --sidebar-border: oklch(0.20 0 0);
+  --sidebar-ring: oklch(1 0.3 200);
+  
+  /* Neon colors */
+  --neon-cyan: #00FFFF;
+  --neon-magenta: #FF00FF;
+  --neon-cyan-dark: #00CCCC;
+  --neon-magenta-dark: #CC00CC;
+}
+
+.dark {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.10 0 0);
+  --popover-foreground: oklch(1 0 0);
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(0.85 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(1 0.3 200);
+  --accent-foreground: oklch(0.08 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.20 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(1 0.3 200);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.10 0 0);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(1 0.3 200);
+  --sidebar-accent-foreground: oklch(0.08 0 0);
+  --sidebar-border: oklch(0.20 0 0);
+  --sidebar-ring: oklch(1 0.3 200);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: rgb(var(--ring) / 0.5);
+  }
+  
+  body {
+    background-color: #0a0a0a;
+    color: var(--foreground);
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow:
+      -2px 0 var(--neon-cyan),
+      2px 0 var(--neon-magenta),
+      0 0 10px rgba(0, 255, 255, 0.3);
+    letter-spacing: 0.05em;
+  }
+  
+  code, pre {
+    font-family: 'Courier New', monospace;
+    color: var(--neon-cyan);
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .container {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 80rem;
+  }
+
+  .flex {
+    display: flex;
+    min-height: 0;
+    min-width: 0;
+  }
+
+  /* Retro button styles */
+  .btn-retro {
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    color: white;
+    border: 2px solid #00FFFF;
+    background-color: transparent;
+    transition: all 200ms;
+    position: relative;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3), inset 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+
+  .btn-retro:hover {
+    background-color: #00FFFF;
+    color: black;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Retro card styles */
+  .card-retro {
+    background-color: #111827;
+    border: 1px solid #00FFFF;
+    padding: 1rem;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.05);
+  }
+
+  .card-retro:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), inset 0 0 10px rgba(0, 255, 255, 0.1);
+  }
+
+  /* Error code text style */
+  .error-code {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #00FFFF;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+  }
+
+  /* Neon glow effect */
+  .neon-glow {
+    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-magenta);
+  }
+
+  /* Glitch effect */
+  .glitch {
+    position: relative;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-anim-1 0.3s infinite;
+    color: var(--neon-cyan);
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch-anim-2 0.3s infinite;
+    color: var(--neon-magenta);
+    z-index: -2;
+  }
+
+  @keyframes glitch-anim-1 {
+    0% {
+      clip-path: inset(40% 0 61% 0);
+      transform: translate(-2px, -2px);
+    }
+    20% {
+      clip-path: inset(92% 0 1% 0);
+      transform: translate(2px, 2px);
+    }
+    40% {
+      clip-path: inset(43% 0 1% 0);
+      transform: translate(-2px, 2px);
+    }
+    60% {
+      clip-path: inset(25% 0 58% 0);
+      transform: translate(2px, -2px);
+    }
+    80% {
+      clip-path: inset(54% 0 7% 0);
+      transform: translate(-2px, -2px);
+    }
+    100% {
+      clip-path: inset(58% 0 43% 0);
+      transform: translate(2px, 2px);
+    }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% {
+      clip-path: inset(27% 0 58% 0);
+      transform: translate(2px, 2px);
+    }
+    20% {
+      clip-path: inset(1% 0 58% 0);
+      transform: translate(-2px, -2px);
+    }
+    40% {
+      clip-path: inset(35% 0 33% 0);
+      transform: translate(2px, -2px);
+    }
+    60% {
+      clip-path: inset(72% 0 12% 0);
+      transform: translate(-2px, 2px);
+    }
+    80% {
+      clip-path: inset(56% 0 34% 0);
+      transform: translate(2px, 2px);
+    }
+    100% {
+      clip-path: inset(13% 0 58% 0);
+      transform: translate(-2px, -2px);
+    }
+  }
+
+  /* Scanline animation */
+  @keyframes scanlines {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 4px;
+    }
+  }
+
+  .scanline-effect {
+    animation: scanlines 0.15s linear infinite;
+  }
+}

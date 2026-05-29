@@ -1,0 +1,1 @@
+ALTER TABLE `games` ADD `difficulty` enum('Easy','Medium','Hard') DEFAULT 'Medium' NOT NULL;
